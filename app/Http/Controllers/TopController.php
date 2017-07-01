@@ -18,7 +18,7 @@ class TopController extends Controller
 	//値を受けて保存
 	public function Res(){
 		$sentence = Input::get('sentence');
-		
+
 		//インスタンス生成
 		$topmodel = new TopModel;
 
@@ -32,10 +32,6 @@ class TopController extends Controller
 	}
 	//一覧表示
 	public function select(){
-
-
-
-   
 		$topmodel = TopModel::all();
 		return view('postit.top');
 	}
