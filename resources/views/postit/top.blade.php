@@ -1,11 +1,12 @@
+ 
 @extends('postit.layout')
  
 @section('content')
- {!! Form::open(['url' => 'top'])!!}
-   <div class="form-group">
-            {!! Form::label('body', 'PostPlese:') !!}
-            {!! Form::textarea('sentence', null, ['class' => 'form-control']) !!}
-   </div>
-
- {!! Form::close() !!}
+    <div>
+<form action="Res" method="post">
+<textarea name="sentence" rows="20" cols="40">ここに感想を記入してください。</textarea>
+<input type="submit" value="SEND">
+<input type="hidden" name="_token" value="{{csrf_token()}}">
+</form>
+</div>
 @endsection
