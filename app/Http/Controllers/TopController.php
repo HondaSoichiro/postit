@@ -9,33 +9,30 @@ use App\TopModel;
 
 class TopController extends Controller
 {
-
 	//form表示
 	public function Top(){
-		return view('postit.top')->with('topmodel', new TopModel());
+		$topmodel = TopModel::all();
+		$sentence = $topmodel[0]->sentence;
+
+		return view('postit.top')->with('sentence',$sentence);
 	}
 
 	//値を受けて保存
-public function Res(Request $request)
-{
+	public function Res(Request $request)
+	{
 		$sentence = Input::get('sentence');
 
-		//インスタンス生成
-		$topmodel = new TopModel;
         //インスタンス生成
         $topmodel = new TopModel;
 
         $topmodel->sentence = $sentence;
-        
 
         //保存
         $topmodel->save();
 
-        return "保存完了";
-    }
-	//一覧表示
-	public function select(){
-		$topmodel = TopModel::all();
-		return view('postit.top');
+        $topmodel = TopModel::all();
+        $sentence = $topmodel[0]->sentence;
+
+        return view('postit.top')->with('sentence',$sentence);
 	}
 }
