@@ -33,6 +33,12 @@ class TopController extends Controller
 	//一覧表示
 	public function select(){
 
+
+
+   
+
+
+}
 		$topmodel = TopModel::all();
 		return view('postit.top');
 	}
