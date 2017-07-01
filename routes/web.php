@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// ...
+Route::get('top', 'TopController@Top');    // 追加
+// ...
