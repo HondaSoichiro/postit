@@ -1,10 +1,10 @@
 @extends('postit.layout')
  
 @section('content')
- {!! Form::model!!}
+ {!! Form::open(['url' => 'top'])!!}
    <div class="form-group">
-            {!! Form::label('body', 'Body:') !!}
-            {!! Form::textarea('body', null, ['class' => 'form-control']) !!}
+            {!! Form::label('body', 'PostPlese:') !!}
+            {!! Form::textarea('sentence', null, ['class' => 'form-control']) !!}
    </div>
 
  {!! Form::close() !!}
