@@ -39,7 +39,7 @@ if ( is_null(User::firstByAttributes('id', '=', '1')) ) {
         return view('postit.top')->with('sentence',$sentence);
 } else {
     // アップデート処理
-    User::where('id', '=', '1')->update(['hoge' => 1]);
+    User::where('id', '=', '1')->update(['sentence' => 1]);
 }
 
 
