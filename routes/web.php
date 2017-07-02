@@ -11,11 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+// Route::post('res','TopController@Res');    // 追加
+Route::get('top/{id}', 'TopController@Top');    // 追加
+Route::post('top/{id}', 'TopController@Top');    // 追加
 
-// ...
-Route::get('top', 'TopController@Top');    // 追加
-// ...
-Route::post('res','TopController@Res');    // 追加
