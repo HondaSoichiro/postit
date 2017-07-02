@@ -16,7 +16,6 @@ class Postit extends Model {
 		$postit->sentence = $sentence;
 		$postit->save ();
 		echo "保存完了";
-		return $postit;
 	}
 
 	// IDを受けて削除
