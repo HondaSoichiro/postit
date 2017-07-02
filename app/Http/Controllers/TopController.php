@@ -20,6 +20,9 @@ class TopController extends Controller
 	//値を受けて保存
 	public function Res(Request $request)
 	{
+
+if ( is_null(User::firstByAttributes('id', '=', '1')) ) {
+    // 新規作成処理
 		$sentence = Input::get('sentence');
 
         //インスタンス生成
@@ -34,5 +37,16 @@ class TopController extends Controller
         $sentence = $topmodel[0]->sentence;
 
         return view('postit.top')->with('sentence',$sentence);
+} else {
+    // アップデート処理
+    User::where('id', '=', '1')->update(['hoge' => 1]);
+}
+
+
+
+
+
 	}
 }
+
+
