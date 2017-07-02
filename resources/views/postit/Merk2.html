@@ -1,8 +1,14 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Postit</title>
+    <link rel="stylesheet" href="post.css">
+    <script type="text/javascript" src="/js/jquery-3.2.1.js"></script>
 
-@extends('postit.layout')
-
-@section('content')
-
+</head>
+<body>
+ 
 <div class="paper">
         <div class="sticky-input-field">
              <form action="res" method="post">
@@ -11,4 +17,6 @@
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
              </form>
 </div>
-@endsection
+ 
+</body>
+</html>

@@ -28,6 +28,7 @@ class TopController extends Controller {
 // 			新規作成処理
  			$sentence = Input::get ( 'sentence' );
 
+
 			// インスタンス生成
 			$topmodel = new TopModel ();
 
