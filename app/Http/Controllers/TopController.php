@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Request;
 use Illuminate\Support\Facades\Input;
 use App\Postit;
@@ -16,7 +15,11 @@ class TopController extends Controller {
 			echo "クエリないよ！";
 			$sentence = 'こちらに入力してください';
 		}
-		$postit = Postit::pi_save($id, $sentence);
-		return view('postit.top')->with ('postit',$postit);
+		Postit::pi_save($id, $sentence);
+
+		$data['postits']=Postit::all();
+		//$postits= Postit::all();
+
+		return view('postit.top', ['postits'=>$data['postits']]);//->with ('postits',$postits);
 	}
 }
