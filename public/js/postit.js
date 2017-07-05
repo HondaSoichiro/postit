@@ -16,7 +16,7 @@ var p = 1;
 
 $(function(){
   $("body").on('dblclick', function(){
-    $("#paper_origin").clone().appendTo(".cloneArea").attr('id', "paper_"+p).appendTo("cloneArea");
+    $("#paper_origin").clone().appendTo(".cloneArea").attr('id', "paper_"+p);
 
 
   		p++;
