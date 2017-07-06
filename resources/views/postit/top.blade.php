@@ -12,7 +12,7 @@ $(function(){
     });
 });
 </script>
- @foreach ($postits as $postit) 
+ @foreach ($postits as $postit)
 
 <div class="cloneArea">
 	<div class="paper" id="paper_origin">
@@ -23,7 +23,6 @@ $(function(){
 		</form>
 	</div>
 </div>
-@endforeach 
 @endforeach
 
 <!-- 自動保存機能 -->
