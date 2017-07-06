@@ -1,19 +1,8 @@
  @extends('postit.layout')
  @section('content')
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript">
-$(function(){
-    $('html').click(function(e){
-        var x = e.pageX;
-        var y = e.pageY;
-        alert('X = ' + x + 'px, Y = ' + y + 'px');
-        $('#locatedpoint').css({top:(y),left:(x),display:'block'}).attr('title','TOP : '+(y)+'px | LEFT : '+(x)+'px');
-    });
-});
-</script>
  @foreach ($postits as $postit) 
 
+ @foreach ($postits as $postit)
 <div class="cloneArea">
 	<div class="paper" id="paper_origin">
 		<form action="1" method="post">
