@@ -13,7 +13,6 @@ $(function(){
 });
 </script>
  @foreach ($postits as $postit)
-
 <div class="cloneArea">
 	<div class="paper" id="paper_origin">
 		<form action="1" method="post">
