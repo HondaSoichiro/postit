@@ -22,3 +22,16 @@ $(function(){
   		p++;
   });
 });
+
+
+
+// function addElement() { 
+// 	    var element = document.createElement('div'); 
+// 	    element.id = "id"; 
+// 	    element.innerHTML = "hogehoge"; 
+// 	    element.style.backgroundColor = 'red'; 
+	 
+// 	    var objBody = document.getElementsByTagName("body").item(0); 
+// 	    objBody.appendChild(element); 
+// 	    // body要素にdivエレメントを追加 
+// 	} 
