@@ -22,4 +22,11 @@ class TopController extends Controller {
 
 		return view('postit.top', ['postits'=>$data['postits']]);//->with ('postits',$postits);
 	}
+
+	public function echotime() {
+		echo date('Y-m-d H:i:s', time());
+// 		return view('postit.top', ['postits'=>$data['postits']]);//->with ('postits',$postits);
+	}
+
+
 }
