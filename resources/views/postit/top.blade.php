@@ -4,13 +4,30 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(function(){
-    $('html').click(function(e){
+    $('html').dblclick(function(e){
         var x = e.pageX;
         var y = e.pageY;
         alert('X = ' + x + 'px, Y = ' + y + 'px');
         $('#locatedpoint').css({top:(y),left:(x),display:'block'}).attr('title','TOP : '+(y)+'px | LEFT : '+(x)+'px');
     });
 });
+
+$(document).ready(function(){
+    $.PeriodicalUpdater({
+    //  オプション設定
+        url: '1',      // 送信リクエストURL
+        minTimeout: 6000,    // 送信インターバル(ミリ秒)
+        method: 'post',      // 'post'/'get'：リクエストメソッド
+//        sendData: $('form').serialize(),   // formの中身を全指定
+//      maxTimeout           // 最長のリクエスト間隔(ミリ秒)
+//      multiplier           // リクエスト間隔の変更(2に設定の場合、レスポンス内容に変更がないときは、リクエスト間隔が2倍になっていく)
+//      type                 // xml、json、scriptもしくはhtml (jquery.getやjquery.postのdataType)
+    },
+    function(data){
+        var myHtml = 'The data returned at ' + data + '';
+        $('#div1022').prepend(myHtml);
+    });
+})
 </script>
  @foreach ($postits as $postit)
 <div class="cloneArea">
@@ -26,24 +43,7 @@ $(function(){
 
 <!-- 自動保存機能 -->
 <div id="div1022"></div>
-<script type="text/javascript">
-$(document).ready(function(){
-    $.PeriodicalUpdater({
-    //  オプション設定
-        url: 'echotime',      // 送信リクエストURL
-        minTimeout: 6000,    // 送信インターバル(ミリ秒)
-        method: 'get',      // 'post'/'get'：リクエストメソッド
-//        sendData: $('form').serialize(),   // formの中身を全指定
-//      maxTimeout           // 最長のリクエスト間隔(ミリ秒)
-//      multiplier           // リクエスト間隔の変更(2に設定の場合、レスポンス内容に変更がないときは、リクエスト間隔が2倍になっていく)
-//      type                 // xml、json、scriptもしくはhtml (jquery.getやjquery.postのdataType)
-    },
-    function(data){
-        var myHtml = 'The data returned at ' + data + '';
-        $('#div1022').prepend(myHtml);
-    });
-})
-</script>
+
 @endsection
 
 
