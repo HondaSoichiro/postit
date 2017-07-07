@@ -4,17 +4,22 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(function(){
-    $('html').click(function(e){
+    $('html').dblclick(function(e){
         var x = e.pageX;
         var y = e.pageY;
-        alert('X = ' + x + 'px, Y = ' + y + 'px');
-        $('#locatedpoint').css({top:(y),left:(x),display:'block'}).attr('title','TOP : '+(y)+'px | LEFT : '+(x)+'px');
+
+      $('.cloneArea').clone().css(//#boxをクローンしてcssを書き換え、bodyに追加する
+        {'left': x + 'px','top': y + 'px','color': 'orange'}
+        ).appendTo("body");
+
+
+
     });
 });
 </script>
  @foreach ($postits as $postit) 
 
-<div class="cloneArea">
+<div class="cloneArea" style="position:absolute; top:120px; left:200px;">
 	<div class="paper" id="paper_origin">
 		<form action="1" method="post">
 			<textarea name="sentence" id="postit" rows="11" cols="40" class="input-sticky-note">{{$postit->sentence}}</textarea>
@@ -23,7 +28,6 @@ $(function(){
 		</form>
 	</div>
 </div>
-@endforeach 
 @endforeach
 
 <!-- 自動保存機能 -->
