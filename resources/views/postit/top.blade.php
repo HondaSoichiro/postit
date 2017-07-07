@@ -8,7 +8,7 @@ $(function(){
         var x = e.pageX;
         var y = e.pageY;
 
-      $('.cloneArea').clone().css(//#boxをクローンしてcssを書き換え、bodyに追加する
+      $('#postform').clone().css(//#boxをクローンしてcssを書き換え、bodyに追加する
         {'left': x + 'px','top': y + 'px','color': 'orange'}
         ).appendTo("body");
 
@@ -19,15 +19,15 @@ $(function(){
 </script>
  @foreach ($postits as $postit) 
 
-<div class="cloneArea" style="position:absolute; top:120px; left:200px;">
-	<div class="paper" id="paper_origin">
-		<form action="1" method="post">
+
+
+		<form action="1" method="post" style="position:absolute; top:120px; left:200px;" id="postform">
 			<textarea name="sentence" id="postit" rows="11" cols="40" class="input-sticky-note">{{$postit->sentence}}</textarea>
 			<input type="submit" value="SEND">
 			<input type="hidden" name="_token" value="{{csrf_token()}}">
 		</form>
-	</div>
-</div>
+
+
 @endforeach
 
 <!-- 自動保存機能 -->
