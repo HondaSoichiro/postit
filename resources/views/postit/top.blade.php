@@ -1,55 +1,58 @@
  @extends('postit.layout')
  @section('content')
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript">
+jQuery( function() {
+    jQuery('.postform-class' ).draggable( {
+        grid: [ 1, 1 ],
+        opacity: 0.5,
+    } );
+} );
+ var p = 0;
 $(function(){
     $('html').dblclick(function(e){
+    	p++; 
         var x = e.pageX;
         var y = e.pageY;
 
-      $('#postform').clone().css(//#boxをクローンしてcssを書き換え、bodyに追加する
-        {'left': x + 'px','top': y + 'px','color': 'orange'}
+      $('#postform').clone().attr('id', "postform"+p).css(//#boxをクローンしてcssを書き換え、bodyに追加する
+        {'left': x-120 + 'px','top': y + 'px'}
         ).appendTo("body");
 
 
+$(".postform-class").off("draggable").on("draggable", jQuery(function(){   
 
-    });
+ jQuery('.postform-class' ).draggable( {
+        grid: [ 1, 1 ],  //左が水平方向のスナップ距離 	//右 が垂直方向のスナップ距離。
+        opacity: 0.5,
+    } );}));
+
 });
+
+$('html').keydown(function() {
+	if( event.keyCode == 13 ) {
+		save_required = true;
+		$(".postform-class").submit();
+		return false;
+	}
+});
+});
+
 </script>
  @foreach ($postits as $postit) 
 
 
 
-		<form action="1" method="post" style="position:absolute; top:120px; left:200px;" id="postform">
+		<form action="1" method="post" style="position:absolute; top:120px; left:200px;" id="postform" class="postform-class">
+		 	<div class="postit-wrapp">
 			<textarea name="sentence" id="postit" rows="11" cols="40" class="input-sticky-note">{{$postit->sentence}}</textarea>
-			<input type="submit" value="SEND">
+			</div>
+			<!--<input type="submit" value="SEND"　id ="submitBtn">-->
 			<input type="hidden" name="_token" value="{{csrf_token()}}">
 		</form>
 
 
 @endforeach
-
-<!-- 自動保存機能 -->
-<div id="div1022"></div>
-<script type="text/javascript">
-$(document).ready(function(){
-    $.PeriodicalUpdater({
-    //  オプション設定
-        url: 'echotime',      // 送信リクエストURL
-        minTimeout: 6000,    // 送信インターバル(ミリ秒)
-        method: 'get',      // 'post'/'get'：リクエストメソッド
-//        sendData: $('form').serialize(),   // formの中身を全指定
-//      maxTimeout           // 最長のリクエスト間隔(ミリ秒)
-//      multiplier           // リクエスト間隔の変更(2に設定の場合、レスポンス内容に変更がないときは、リクエスト間隔が2倍になっていく)
-//      type                 // xml、json、scriptもしくはhtml (jquery.getやjquery.postのdataType)
-    },
-    function(data){
-        var myHtml = 'The data returned at ' + data + '';
-        $('#div1022').prepend(myHtml);
-    });
-})
-</script>
 @endsection
 
 

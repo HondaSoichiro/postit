@@ -1,0 +1,22 @@
+textarea {
+  outline: none;
+  border:solid 1px #1B2945;
+  resize: none;
+  background-color:#1B2945;
+  color:#4080BD;
+  cursor: move;
+}
+
+.ui-draggable-handle{
+
+	padding-top:10px;
+
+
+}
+
+
+.postit-wrapp{
+padding:10px 1px 0px 1px;
+background-color:#1B2945;
+border-radius: 10px;
+}
