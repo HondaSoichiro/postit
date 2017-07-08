@@ -16,7 +16,7 @@ $(function(){
         var y = e.pageY;
 
       $('#postform').clone().attr('id', "postform"+p).css(//#boxをクローンしてcssを書き換え、bodyに追加する
-        {'left': x-120 + 'px','top': y + 'px'}
+        {'left': x-120 + 'px','top': y + 'px','display': 'block'}
         ).appendTo("body");
 
 
@@ -43,9 +43,11 @@ $('html').keydown(function() {
 
 
 
-		<form action="1" method="post" style="position:absolute; top:120px; left:200px;" id="postform" class="postform-class">
+		<form action="1" method="post" style="position:absolute; top:120px; left:200px; display: none;" id="postform" class="postform-class">
 		 	<div class="postit-wrapp">
-			<textarea name="sentence" id="postit" rows="11" cols="40" class="input-sticky-note">{{$postit->sentence}}</textarea>
+			<textarea name="sentence" id="postit" rows="11" cols="40" class="input-sticky-note">
+@if (Request::has('sentence'))
+{{$postit->sentence}}@endif</textarea>  <!--空白の付箋をコピーしなければならない今のままだとデータベースの値が表示されてしまうpsインデント変えると空白できちゃうかも-->
 			</div>
 			<!--<input type="submit" value="SEND"　id ="submitBtn">-->
 			<input type="hidden" name="_token" value="{{csrf_token()}}">
