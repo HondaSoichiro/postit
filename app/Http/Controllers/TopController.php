@@ -11,7 +11,7 @@ class TopController extends Controller {
 		if (Request::has('sentence')) {
 			$sentence = Request::input('sentence');
 		} else {
-			$sentence = 'こちらに入力してください';
+			$sentence = '';
 		}
 		Postit::pi_save($id, $sentence);
 
