@@ -9,10 +9,8 @@ class TopController extends Controller {
 	// form表示
 	public function Top($id) {
 		if (Request::has('sentence')) {
-			echo "クエリあるよ！";
 			$sentence = Request::input('sentence');
 		} else {
-			echo "クエリないよ！";
 			$sentence = 'こちらに入力してください';
 		}
 		Postit::pi_save($id, $sentence);

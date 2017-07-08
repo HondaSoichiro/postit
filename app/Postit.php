@@ -15,7 +15,6 @@ class Postit extends Model {
 //		$sentence = Input::get('sentence');
 		$postit->sentence = $sentence;
 		$postit->save ();
-		echo "保存完了";
 	}
 
 	// IDを受けて削除
