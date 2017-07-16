@@ -19,4 +19,5 @@ Route::post('top/pi_save', 'TopController@Top');    // 追加
 Route::get('top/echotime', 'TopController@echotime');    // 追加
 Route::get('top/{id}', 'TopController@Top');    // 追加
 Route::post('top/{id}', 'TopController@Top');    // 追加
+// Route::post('top/', 'TopController@Top');    // 追加
 

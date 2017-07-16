@@ -10,10 +10,13 @@ class Postit extends Model {
 	protected $guarded = array ('id'); // 入力を禁止するカラムの指定
 
 	// IDとSentenceを受けて保存
-	public static function pi_save($id , $sentence) {
+// 	public static function pi_save($id, $x, $y, $sentence) {
+	public static function pi_save($id, $sentence) {
 		$postit = Postit::firstOrNew (['id'=> $id]); // インスタンス1つ
-//		$sentence = Input::get('sentence');
+// 		$sentence = Input::get('sentence');
 		$postit->sentence = $sentence;
+// 		$postit->x = $x;
+// 		$postit->y = $y;
 		$postit->save ();
 	}
 
